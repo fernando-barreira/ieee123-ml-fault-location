@@ -1,0 +1,144 @@
+==============================================================================
+  OPERATIONAL ROBUSTNESS (no retraining)
+==============================================================================
+  device: cuda | missing-PMU mode: 'mean' | noise runs: 3
+  PMUs: ['1', '42', '63', '91', '135']
+    measured phasor columns: 120 (24 per PMU)
+    PMU 1       90 derived features
+    PMU 42      90 derived features
+    PMU 63      90 derived features
+    PMU 91      90 derived features
+    PMU 135     90 derived features
+    aggregates: severity=True, one-hot dI=[0, 1, 2, 3, 4], dV=[0, 1, 2, 3, 4]
+    sanity: features re-derived at sigma=0 reproduce the dataset
+    training noise: Deep Residual MLP=0.187% [best_hp[DeepResidualMLP][noise_std]], MLP Baseline=0.285% [best_hp[MLP][noise_std]], Random Forest=0.000% [no augmentation], LightGBM=0.000% [no augmentation]
+
+  -- fold 0 | n_test=15000 --
+    Deep Residual MLP: done (24s)
+    MLP Baseline: done (23s)
+    Random Forest: done (1255s)
+    LightGBM: done (107s)
+
+  -- fold 1 | n_test=15000 --
+    Deep Residual MLP: done (22s)
+    MLP Baseline: done (21s)
+    Random Forest: done (1152s)
+    LightGBM: done (106s)
+
+  -- fold 2 | n_test=15000 --
+    Deep Residual MLP: done (21s)
+    MLP Baseline: done (20s)
+    Random Forest: done (1193s)
+    LightGBM: done (118s)
+
+  -- fold 3 | n_test=15000 --
+    Deep Residual MLP: done (20s)
+    MLP Baseline: done (20s)
+    Random Forest: done (1407s)
+    LightGBM: done (116s)
+
+  -- fold 4 | n_test=15000 --
+    Deep Residual MLP: done (21s)
+    MLP Baseline: done (20s)
+    Random Forest: done (1406s)
+    LightGBM: done (104s)
+
+==============================================================================
+  [1] PMU CRITICALITY — Top-1 lost when a sensor is unavailable (mode 'mean')
+==============================================================================
+
+  Deep Residual MLP  (intact Top-1 = 0.8324)
+    PMU 63     -0.7888 +/- 0.0087
+    PMU 91     -0.7815 +/- 0.0045
+    PMU 42     -0.7812 +/- 0.0148
+    PMU 135    -0.7705 +/- 0.0058
+    PMU 1      -0.7443 +/- 0.0093
+
+  MLP Baseline  (intact Top-1 = 0.7499)
+    PMU 63     -0.7144 +/- 0.0029
+    PMU 42     -0.6973 +/- 0.0044
+    PMU 91     -0.6931 +/- 0.0056
+    PMU 135    -0.6582 +/- 0.0036
+    PMU 1      -0.6450 +/- 0.0062
+
+  Random Forest  (intact Top-1 = 0.4599)
+    PMU 135    -0.3406 +/- 0.0052
+    PMU 42     -0.2092 +/- 0.0113
+    PMU 63     -0.1889 +/- 0.0047
+    PMU 91     -0.1019 +/- 0.0042
+    PMU 1      -0.1009 +/- 0.0054
+
+  LightGBM  (intact Top-1 = 0.4278)
+    PMU 42     -0.2252 +/- 0.0282
+    PMU 63     -0.1926 +/- 0.0055
+    PMU 135    -0.1677 +/- 0.0058
+    PMU 1      -0.1482 +/- 0.0023
+    PMU 91     -0.1406 +/- 0.0054
+
+==============================================================================
+  [2] MEASUREMENT ERROR — Top-1 vs total vector error (IEEE C37.118)
+==============================================================================
+
+  independent
+    Model                           0%       0.05%        0.1%        0.2%        0.5%          1%
+    --------------------------------------------------------------------
+    Deep Residual MLP           0.8324      0.3944      0.3051      0.2279      0.1487      0.0999
+    MLP Baseline                0.7499      0.3933      0.3047      0.2242      0.1453      0.1033
+    Random Forest               0.4599      0.2946      0.2465      0.2081      0.1614      0.1272
+    LightGBM                    0.4278      0.2780      0.2347      0.1998      0.1559      0.1231
+
+  correlated within PMU
+    Model                           0%       0.05%        0.1%        0.2%        0.5%          1%
+    --------------------------------------------------------------------
+    Deep Residual MLP           0.8324      0.3948      0.3042      0.2227      0.1409      0.0931
+    MLP Baseline                0.7499      0.3922      0.3040      0.2229      0.1459      0.1010
+    Random Forest               0.4599      0.2933      0.2476      0.2081      0.1609      0.1242
+    LightGBM                    0.4278      0.2770      0.2358      0.1978      0.1520      0.1197
+
+  fixed bias per PMU
+    Model                           0%       0.05%        0.1%        0.2%        0.5%          1%
+    --------------------------------------------------------------------
+    Deep Residual MLP           0.8324      0.8162      0.7735      0.6992      0.5583      0.3244
+    MLP Baseline                0.7499      0.7453      0.7200      0.6601      0.5697      0.4322
+    Random Forest               0.4599      0.4598      0.4587      0.4533      0.4318      0.4128
+    LightGBM                    0.4278      0.4277      0.4276      0.4257      0.4082      0.3571
+
+  Degradation slope (Top-1 per unit TVE; less negative = more robust)
+
+    independent
+      Deep Residual MLP      slope= -47.694 +/-0.486   R2=0.471  AUC=0.0019  TVE(50%)=0.048%
+      MLP Baseline           slope= -43.886 +/-0.235   R2=0.509  AUC=0.0019  TVE(50%)=0.060%
+      Random Forest          slope= -23.614 +/-0.294   R2=0.577  AUC=0.0018  TVE(50%)=0.143%
+      LightGBM               slope= -21.752 +/-0.208   R2=0.587  AUC=0.0018  TVE(50%)=0.160%
+      (low R2: the degradation is a threshold, not a ramp; quote TVE(50%) rather than the slope)
+
+    correlated
+      Deep Residual MLP      slope= -48.455 +/-0.380   R2=0.477  AUC=0.0019  TVE(50%)=0.048%
+      MLP Baseline           slope= -44.007 +/-0.265   R2=0.510  AUC=0.0019  TVE(50%)=0.060%
+      Random Forest          slope= -23.897 +/-0.202   R2=0.585  AUC=0.0018  TVE(50%)=0.145%
+      LightGBM               slope= -22.143 +/-0.135   R2=0.593  AUC=0.0017  TVE(50%)=0.157%
+      (low R2: the degradation is a threshold, not a ramp; quote TVE(50%) rather than the slope)
+
+    bias
+      Deep Residual MLP      slope= -50.955 +/-4.496   R2=0.946  AUC=0.0056  TVE(50%)=0.811%
+      MLP Baseline           slope= -32.386 +/-6.195   R2=0.944  AUC=0.0058  TVE(50%)=0.957%
+      Random Forest          slope=  -5.048 +/-1.161   R2=0.916  AUC=0.0044  TVE(50%)=  > max
+      LightGBM               slope=  -7.157 +/-1.203   R2=0.943  AUC=0.0040  TVE(50%)=  > max
+
+  Top-1 at each model's own training noise level
+    Deep Residual MLP      sigma=0.187%  Top-1=0.2338 +/- 0.0022   [best_hp[DeepResidualMLP][noise_std]]
+    MLP Baseline           sigma=0.285%  Top-1=0.1893 +/- 0.0024   [best_hp[MLP][noise_std]]
+    Random Forest          sigma=0.000%  Top-1=0.4599 +/- 0.0063   [no augmentation]
+    LightGBM               sigma=0.000%  Top-1=0.4278 +/- 0.0037   [no augmentation]
+
+==============================================================================
+  [3] ISOLATED INSTRUMENT CHAIN (TVE = 0.2% on one chain only)
+==============================================================================
+  Model                   voltage transformers  current transformers
+  ------------------------------------------------------------------
+  Deep Residual MLP                     0.3630                0.2578
+  MLP Baseline                          0.3731                0.2533
+  Random Forest                         0.3210                0.2712
+  LightGBM                              0.3058                0.2436
+
+  elapsed: 7440s

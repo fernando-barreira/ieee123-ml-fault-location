@@ -1,0 +1,47 @@
+# ─── generated data ─────────────────────────────────────────────────────────
+# The raw measurement file alone is several GB
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+!data/README.md
+
+# ─── results ────────────────────────────────────────────────────────────────
+# Metrics and placement artefacts ARE versioned; model weights and the FSNR
+# evaluation cache are not.
+results/**/*.pkl
+results/**/*.pt
+results/**/*.pth
+results/**/*.ckpt
+results/**/fsnr_progress.json
+results/**/study.db
+results/**/*.zip
+!results/.gitkeep
+
+# ─── network model (redistributed by EPRI, not by us) ───────────────────────
+network/dss/*
+!network/dss/.gitkeep
+
+# ─── python ─────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# ─── tooling / editors ──────────────────────────────────────────────────────
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ─── OpenDSS scratch output ─────────────────────────────────────────────────
+*.dbl
+*.sng
+*_EXP_*.csv
+*_Power_elem_*.txt

@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+title: >-
+  From 5 PMUs to 122 Buses: Machine Learning for Fault Location in Active
+  Distribution Networks
+message: >-
+  If you use this software or the associated dataset, please cite both the
+  software and the paper.
+type: software
+authors:
+  - given-names: Fernando José Kurabayashi
+    family-names: Barreira
+    email: fernando.barreira@unesp.br
+    affiliation: >-
+      Department of Electrical Engineering, Universidade Estadual Paulista
+      "Júlio de Mesquita Filho" (UNESP), Bauru, Brazil
+  - given-names: José Alfredo Covolan
+    family-names: Ulson
+    email: alfredo.ulson@unesp.br
+    affiliation: >-
+      Department of Electrical Engineering, Universidade Estadual Paulista
+      "Júlio de Mesquita Filho" (UNESP), Bauru, Brazil
+repository-code: 'https://github.com/fernando-barreira/ieee123-ml-fault-location'
+abstract: >-
+  Reproducibility package for a machine-learning study of multi-class fault-bus
+  identification on the IEEE 123-bus distribution feeder with distributed
+  generation, using sparse PMU measurements. Includes the OpenDSS Monte-Carlo
+  simulation campaign, physics-informed feature engineering, algorithmic PMU
+  placement by Forward Selection with Neighborhood Refinement, and the
+  training and evaluation protocol.
+keywords:
+  - fault location
+  - distribution networks
+  - distributed generation
+  - phasor measurement units
+  - PMU placement
+  - OpenDSS
+  - IEEE 123-bus
+  - deep learning
+  - symmetrical components
+license: MIT
+version: 1.0.0
+date-released: '2026-07-31'

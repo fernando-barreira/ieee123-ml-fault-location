@@ -1,0 +1,120 @@
+==============================================================================
+  PERMUTATION IMPORTANCE BY PHYSICAL FEATURE GROUP
+==============================================================================
+  device: cuda | repeats per group: 3
+  groups: voltages(60), currents(60), angles(90), trig(90), ratios(70), impedance(30), power(45), globals(6), argmax PMU(10)
+  coverage: 461 of 461 feature columns
+
+  Shapley enabled: 512 coalitions per model per fold (9 groups).
+
+  -- fold 0 | n_test=15000 --
+    Deep Residual MLP: intact Top-1 = 0.8362, all-permuted floor = 0.0093 (8s)
+      Shapley: ~0.17s per coalition, ~1 min for this fold
+      Shapley done in 1.3 min | sum=0.8269 vs v(N)-v(0)=0.8269 | residual=0.00e+00
+    Random Forest: intact Top-1 = 0.4620, all-permuted floor = 0.0091 (1093s)
+      Shapley: ~6.10s per coalition, ~52 min for this fold
+      Shapley done in 118.0 min | sum=0.4529 vs v(N)-v(0)=0.4529 | residual=1.11e-16
+
+  -- fold 1 | n_test=15000 --
+    Deep Residual MLP: intact Top-1 = 0.8278, all-permuted floor = 0.0096 (11s)
+      Shapley: ~0.25s per coalition, ~2 min for this fold
+      Shapley done in 1.4 min | sum=0.8182 vs v(N)-v(0)=0.8182 | residual=1.11e-16
+    Random Forest: intact Top-1 = 0.4562, all-permuted floor = 0.0093 (887s)
+      Shapley: ~19.43s per coalition, ~166 min for this fold
+      Shapley done in 159.7 min | sum=0.4469 vs v(N)-v(0)=0.4469 | residual=5.55e-17
+
+  -- fold 2 | n_test=15000 --
+    Deep Residual MLP: intact Top-1 = 0.8357, all-permuted floor = 0.0096 (11s)
+      Shapley: ~0.26s per coalition, ~2 min for this fold
+      Shapley done in 1.4 min | sum=0.8261 vs v(N)-v(0)=0.8261 | residual=0.00e+00
+    Random Forest: intact Top-1 = 0.4693, all-permuted floor = 0.0093 (1061s)
+      Shapley: ~11.66s per coalition, ~100 min for this fold
+      Shapley done in 60.9 min | sum=0.4599 vs v(N)-v(0)=0.4599 | residual=0.00e+00
+
+  -- fold 3 | n_test=15000 --
+    Deep Residual MLP: intact Top-1 = 0.8347, all-permuted floor = 0.0090 (11s)
+      Shapley: ~0.25s per coalition, ~2 min for this fold
+      Shapley done in 1.5 min | sum=0.8257 vs v(N)-v(0)=0.8257 | residual=0.00e+00
+    Random Forest: intact Top-1 = 0.4503, all-permuted floor = 0.0094 (1101s)
+      Shapley: ~5.42s per coalition, ~46 min for this fold
+      Shapley done in 62.0 min | sum=0.4409 vs v(N)-v(0)=0.4409 | residual=5.55e-17
+
+  -- fold 4 | n_test=15000 --
+    Deep Residual MLP: intact Top-1 = 0.8275, all-permuted floor = 0.0085 (12s)
+      Shapley: ~0.25s per coalition, ~2 min for this fold
+      Shapley done in 1.4 min | sum=0.8189 vs v(N)-v(0)=0.8189 | residual=1.11e-16
+    Random Forest: intact Top-1 = 0.4615, all-permuted floor = 0.0090 (1035s)
+      Shapley: ~7.01s per coalition, ~60 min for this fold
+      Shapley done in 63.8 min | sum=0.4525 vs v(N)-v(0)=0.4525 | residual=0.00e+00
+
+==============================================================================
+  NECESSITY AND SUFFICIENCY (mean +/- std over folds)
+==============================================================================
+    necessity   = Top-1 lost when this group alone is permuted
+    sufficiency = Top-1 gained over the all-permuted floor when this group alone survives
+
+  Deep Residual MLP  (intact 0.8324 +/- 0.0039, floor 0.0092)
+    Group          n feat           necessity   sufficiency   nec/feat
+    ------------------------------------------------------------------
+    voltages           60       0.7495+/-0.0038        0.0066    0.01249
+    trig               90       0.7412+/-0.0084        0.0051    0.00824
+    ratios             70       0.7229+/-0.0078        0.0047    0.01033
+    angles             90       0.7093+/-0.0075        0.0026    0.00788
+    impedance          30       0.6658+/-0.0102        0.0034    0.02219
+    currents           60       0.5691+/-0.0137       -0.0004    0.00949
+    power              45       0.4123+/-0.0215       -0.0002    0.00916
+    argmax PMU         10       0.2560+/-0.0103        0.0009    0.02560
+    globals             6       0.1775+/-0.0085       -0.0001    0.02959
+
+  Random Forest  (intact 0.4599 +/- 0.0063, floor 0.0092)
+    Group          n feat           necessity   sufficiency   nec/feat
+    ------------------------------------------------------------------
+    trig               90       0.2162+/-0.0033        0.0143    0.00240
+    argmax PMU         10       0.1857+/-0.0049        0.0184    0.01857
+    angles             90       0.0782+/-0.0023        0.0042    0.00087
+    ratios             70       0.0634+/-0.0045        0.0030    0.00091
+    currents           60       0.0578+/-0.0020        0.0298    0.00096
+    globals             6       0.0569+/-0.0016        0.0313    0.00949
+    voltages           60       0.0232+/-0.0022        0.0105    0.00039
+    power              45       0.0231+/-0.0020        0.0013    0.00051
+    impedance          30       0.0129+/-0.0025        0.0020    0.00043
+
+  Deep Residual MLP: necessities sum to 5.004 against an available 0.823; they overlap by 6.1x and must not be presented as an additive decomposition.
+
+  Random Forest: necessities sum to 0.717 against an available 0.451; they overlap by 1.6x and must not be presented as an additive decomposition.
+
+==============================================================================
+  GROUPED SHAPLEY VALUES (additive by construction)
+==============================================================================
+
+  Deep Residual MLP  (5 fold(s), 512 evaluations each)
+    Group                    Shapley     share
+    --------------------------------------------
+    voltages           0.1343+/-0.0017     16.3%
+    trig               0.1303+/-0.0013     15.8%
+    ratios             0.1278+/-0.0015     15.5%
+    angles             0.1165+/-0.0011     14.2%
+    impedance          0.1107+/-0.0014     13.4%
+    currents           0.0855+/-0.0024     10.4%
+    power              0.0564+/-0.0030      6.9%
+    argmax PMU         0.0370+/-0.0015      4.5%
+    globals            0.0247+/-0.0013      3.0%
+    TOTAL              0.8232          v(N)-v(0) = 0.8232
+    efficiency check: largest residual 1.11e-16 (exact enumeration, so this is float error only)
+
+  Random Forest  (5 fold(s), 512 evaluations each)
+    Group                    Shapley     share
+    --------------------------------------------
+    trig               0.1136+/-0.0018     25.2%
+    argmax PMU         0.0913+/-0.0023     20.3%
+    currents           0.0510+/-0.0004     11.3%
+    globals            0.0501+/-0.0004     11.1%
+    angles             0.0496+/-0.0012     11.0%
+    ratios             0.0410+/-0.0016      9.1%
+    voltages           0.0204+/-0.0008      4.5%
+    power              0.0174+/-0.0002      3.9%
+    impedance          0.0162+/-0.0007      3.6%
+    TOTAL              0.4506          v(N)-v(0) = 0.4506
+    efficiency check: largest residual 1.11e-16 (exact enumeration, so this is float error only)
+
+  elapsed: 33820s

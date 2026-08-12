@@ -1,0 +1,50 @@
+{
+  "rows": [
+    {
+      "configuration": "Substation only (bus 149)",
+      "n_pmus": 1,
+      "buses": "149",
+      "geometric_top1": 0.1136075114887509,
+      "proxy_mlp_top1": 0.11,
+      "proxy_rf_top1": 0.11733333333333333,
+      "n_features": 90
+    },
+    {
+      "configuration": "FSNR set {1, 42, 63, 91, 135}",
+      "n_pmus": 5,
+      "buses": "1 42 63 91 135",
+      "geometric_top1": 0.234314129132477,
+      "proxy_mlp_top1": 0.23733333333333334,
+      "proxy_rf_top1": 0.23133333333333334,
+      "n_features": 450
+    },
+    {
+      "configuration": "FSNR set + 4 next-best candidates",
+      "n_pmus": 9,
+      "buses": "1 29 42 48 63 83 91 135 197",
+      "geometric_top1": 0.27626074639731213,
+      "proxy_mlp_top1": 0.27,
+      "proxy_rf_top1": 0.2826666666666667,
+      "n_features": 810
+    }
+  ],
+  "forward_path": [
+    "135",
+    "91",
+    "1",
+    "42",
+    "63",
+    "29",
+    "83",
+    "48",
+    "197"
+  ],
+  "refined_placement": [
+    "1",
+    "42",
+    "63",
+    "91",
+    "135"
+  ],
+  "refine_k": 5
+}

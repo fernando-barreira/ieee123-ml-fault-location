@@ -1,0 +1,63 @@
+==============================================================================
+  HOLDOUT CHECK — evaluated once, read-only
+==============================================================================
+  holdout: 5,000 scenarios, disjoint from every fold
+  device: cuda
+
+  -- fold 0 --
+    Deep Residual MLP      own fold Top-1=0.8362 | holdout Top-1=0.8310
+    MLP Baseline           own fold Top-1=0.7495 | holdout Top-1=0.7414
+    TabNet                 own fold Top-1=0.7897 | holdout Top-1=0.7814
+    Random Forest          own fold Top-1=0.4620 | holdout Top-1=0.4560
+    LightGBM               own fold Top-1=0.4315 | holdout Top-1=0.4232
+
+  -- fold 1 --
+    Deep Residual MLP      own fold Top-1=0.8278 | holdout Top-1=0.8282
+    MLP Baseline           own fold Top-1=0.7481 | holdout Top-1=0.7426
+    TabNet                 own fold Top-1=0.7764 | holdout Top-1=0.7750
+    Random Forest          own fold Top-1=0.4562 | holdout Top-1=0.4470
+    LightGBM               own fold Top-1=0.4263 | holdout Top-1=0.4262
+
+  -- fold 2 --
+    Deep Residual MLP      own fold Top-1=0.8357 | holdout Top-1=0.8254
+    MLP Baseline           own fold Top-1=0.7505 | holdout Top-1=0.7434
+    TabNet                 own fold Top-1=0.7537 | holdout Top-1=0.7472
+    Random Forest          own fold Top-1=0.4693 | holdout Top-1=0.4554
+    LightGBM               own fold Top-1=0.4303 | holdout Top-1=0.4250
+
+  -- fold 3 --
+    Deep Residual MLP      own fold Top-1=0.8347 | holdout Top-1=0.8284
+    MLP Baseline           own fold Top-1=0.7529 | holdout Top-1=0.7504
+    TabNet                 own fold Top-1=0.7871 | holdout Top-1=0.7824
+    Random Forest          own fold Top-1=0.4503 | holdout Top-1=0.4574
+    LightGBM               own fold Top-1=0.4213 | holdout Top-1=0.4282
+
+  -- fold 4 --
+    Deep Residual MLP      own fold Top-1=0.8275 | holdout Top-1=0.8226
+    MLP Baseline           own fold Top-1=0.7482 | holdout Top-1=0.7438
+    TabNet                 own fold Top-1=0.7849 | holdout Top-1=0.7796
+    Random Forest          own fold Top-1=0.4615 | holdout Top-1=0.4604
+    LightGBM               own fold Top-1=0.4297 | holdout Top-1=0.4286
+
+==============================================================================
+  CROSS-VALIDATION vs HOLDOUT
+==============================================================================
+  Model                           CV Top-1    Holdout (per fold)    delta   Ensemble
+  --------------------------------------------------------------------------
+  Deep Residual MLP         0.8324+/-0.0039       0.8271+/-0.0029  -0.0053     0.8416
+  MLP Baseline              0.7499+/-0.0018       0.7443+/-0.0031  -0.0055     0.7558
+  TabNet                    0.7783+/-0.0131       0.7731+/-0.0132  -0.0052     0.8048
+  Random Forest             0.4599+/-0.0063       0.4552+/-0.0045  -0.0046     0.4752
+  LightGBM                  0.4278+/-0.0037       0.4262+/-0.0020  -0.0016     0.4502
+
+  Top-3 / Top-5 on the holdout (ensemble)
+    Deep Residual MLP      T1=0.8416  T3=0.9798  T5=0.9918
+    MLP Baseline           T1=0.7558  T3=0.9562  T5=0.9854
+    TabNet                 T1=0.8048  T3=0.9674  T5=0.9894
+    Random Forest          T1=0.4752  T3=0.7646  T5=0.8616
+    LightGBM               T1=0.4502  T3=0.7388  T5=0.8418
+
+==============================================================================
+  Every model agrees within 2%. The cross-validation estimates are not inflated by repeated use of that pool.
+  All differences point the same way (holdout below CV), which is worth examining rather than dismissing.
+==============================================================================

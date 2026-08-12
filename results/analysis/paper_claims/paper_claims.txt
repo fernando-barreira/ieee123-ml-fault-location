@@ -1,0 +1,60 @@
+==============================================================================
+  NUMBERS QUOTED IN THE PAPER'S PROSE
+==============================================================================
+
+==============================================================================
+  [1] PREDICTION CONCENTRATION — Baseline Impedance
+==============================================================================
+  predictions made          : 75,000
+  distinct buses predicted  : 14 of 122 (11.5%)
+  share on the top bus      : 54.9% (bus 114)
+  share on the top two      : 81.2%
+  share on the top five     : 97.3%
+
+  ten most-predicted buses:
+    bus 114      41,160  ( 54.9%)
+    bus 33       19,769  ( 26.4%)
+    bus 6         9,045  ( 12.1%)
+    bus 151       1,921  (  2.6%)
+    bus 149       1,092  (  1.5%)
+    bus 4           801  (  1.1%)
+    bus 5           407  (  0.5%)
+    bus 30          344  (  0.5%)
+    bus 3           196  (  0.3%)
+    bus 250          85  (  0.1%)
+
+  Sentence: the impedance baseline predicts only 14 of the 122 candidate buses, placing 55% of its predictions on a single bus and 81% on two.
+
+==============================================================================
+  [2] PER-BUS RECALL — Deep Residual MLP
+==============================================================================
+  pooled samples        : 75,000
+  overall Top-1         : 0.8324
+  buses with samples    : 122 of 122
+  recall >= 90%         : 60 (49.2%)
+  recall < 70%          : 18 (14.8%)
+  median recall         : 0.8949
+
+  fifteen worst buses:
+    bus        recall   support  note
+    97          0.348       770  switch-adjacent to bus 197
+    11          0.351       464  
+    99          0.420       727  
+    13          0.429       781  switch-adjacent to bus 152
+    108         0.435       744  
+    95          0.479       728  
+    450         0.497       762  
+    98          0.499       748  
+    300         0.509       717  
+    197         0.540       771  switch-adjacent to bus 97
+    152         0.544       800  switch-adjacent to bus 13
+    101         0.547       739  
+    10          0.577       487  
+    100         0.588       754  
+    29          0.654       717  
+
+  mean recall on switch-adjacent buses : 0.628 (6 buses)
+  mean recall elsewhere                : 0.853 (116 buses)
+  These pairs are separated by a closed switch of a few milliohms; no measurement-based method can distinguish them.
+
+  Sentence: 49% of the buses are located correctly in at least 90% of cases, while a tail of 18 buses falls below 70%.

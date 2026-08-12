@@ -1,0 +1,32 @@
+# ─── core (stages 1, 2, 4, 5, 7) ────────────────────────────────────────────
+numpy>=1.24,<3
+pandas>=2.0
+scikit-learn>=1.3
+networkx>=3.0
+
+# ─── simulation (stage 3) ───────────────────────────────────────────────────
+# Also requires a working OpenDSS engine. On Windows this ships with the
+# official OpenDSS installer; on Linux/macOS py_dss_interface bundles DSS-Extensions.
+py_dss_interface>=2.0
+
+# ─── PMU placement and neural models (stage 6 onwards) ──────────────────────
+# IMPORTANT: do NOT install torch from this file on Windows.
+#   `pip install torch` resolves to the CPU-ONLY wheel on PyPI, and the GPU is
+#   then unusable no matter what hardware is present. Install it separately
+#   from the CUDA index, picking the build that matches your driver:
+#
+#     pip install torch --index-url https://download.pytorch.org/whl/cu126
+#
+#   See https://pytorch.org/get-started/locally/ for the current build list.
+#   Verify with:
+#     python -c "import torch; print(torch.version.cuda, torch.cuda.is_available())"
+#   A CUDA build prints e.g. "12.6 True"; the CPU wheel prints "None False".
+torch>=2.0
+
+# ─── stages 8-10 (hyper-parameter search, models, baselines) ────────────────
+optuna>=3.4
+lightgbm>=4.0
+pytorch-tabnet>=4.1
+
+# ─── figures ────────────────────────────────────────────────────────────────
+matplotlib>=3.7

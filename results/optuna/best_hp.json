@@ -1,0 +1,60 @@
+{
+  "DeepResidualMLP": {
+    "dropout_start": 0.3724797657899962,
+    "lr": 0.000520814594093889,
+    "weight_decay": 0.00019489008462344248,
+    "dropout_end": 0.4838401724430802,
+    "hidden": 256,
+    "n_blocks": 4,
+    "batch_size": 512,
+    "focal_gamma": 1.950294566141342,
+    "label_smoothing": 0.05357746840747585,
+    "class_weight_mode": "uniform",
+    "noise_std": 0.0018651851039985423,
+    "activation": "silu",
+    "residual_scale": 0.7049763486783568,
+    "scheduler_patience": 40
+  },
+  "LightGBM": {
+    "num_leaves": 63,
+    "learning_rate": 0.025565609682543462,
+    "min_data_in_leaf": 50,
+    "feature_fraction": 0.6089267919181687,
+    "bagging_fraction": 0.8987584091316997,
+    "lambda_l1": 0.026834482755836078,
+    "lambda_l2": 0.14651339401605715
+  },
+  "MLP": {
+    "n_layers": 4,
+    "hidden_0": 512,
+    "dropout": 0.3252233009446337,
+    "activation": "silu",
+    "lr": 0.003999220074578466,
+    "weight_decay": 9.324140221663475e-05,
+    "batch_size": 512,
+    "focal_gamma": 2.457673124081441,
+    "label_smoothing": 0.09624472949421113,
+    "class_weight_mode": "uniform",
+    "noise_std": 0.002848404943774676,
+    "scheduler_patience": 20
+  },
+  "RF": {
+    "n_estimators": 800,
+    "max_features": 0.2583204127547164,
+    "min_samples_leaf": 1,
+    "max_depth": 40,
+    "max_samples": 0.9869935984943501,
+    "class_weight": null
+  },
+  "TabNet": {
+    "n_d": 32,
+    "n_steps": 3,
+    "gamma": 1.43806068739917,
+    "lambda_sparse": 0.00027463496909954237,
+    "lr": 0.03268872816495063,
+    "mask_type": "entmax",
+    "virtual_batch_size": 256,
+    "batch_size": 512,
+    "class_weight_mode": "uniform"
+  }
+}
