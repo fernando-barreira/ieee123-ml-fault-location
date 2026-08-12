@@ -1,42 +1,39 @@
 cff-version: 1.2.0
 title: >-
-  From 5 PMUs to 122 Buses: Machine Learning for Fault Location in Active
-  Distribution Networks
+  From 5 PMUs to 122 Buses: Machine Learning for Bus-Level Fault Location
+  in Active Distribution Networks
 message: >-
   If you use this software or the associated dataset, please cite both the
   software and the paper.
 type: software
 authors:
-  - given-names: Fernando José Kurabayashi
-    family-names: Barreira
+  - given-names: Fernando José
+    family-names: Kurabayashi Barreira
     email: fernando.barreira@unesp.br
     affiliation: >-
       Department of Electrical Engineering, Universidade Estadual Paulista
       "Júlio de Mesquita Filho" (UNESP), Bauru, Brazil
-  - given-names: José Alfredo Covolan
-    family-names: Ulson
+  - given-names: José Alfredo
+    family-names: Covolan Ulson
     email: alfredo.ulson@unesp.br
     affiliation: >-
       Department of Electrical Engineering, Universidade Estadual Paulista
       "Júlio de Mesquita Filho" (UNESP), Bauru, Brazil
 repository-code: 'https://github.com/fernando-barreira/ieee123-ml-fault-location'
 abstract: >-
-  Reproducibility package for a machine-learning study of multi-class fault-bus
-  identification on the IEEE 123-bus distribution feeder with distributed
-  generation, using sparse PMU measurements. Includes the OpenDSS Monte-Carlo
-  simulation campaign, physics-informed feature engineering, algorithmic PMU
-  placement by Forward Selection with Neighborhood Refinement, and the
-  training and evaluation protocol.
+  Reproducibility package for the paper "Machine Learning for Bus-Level Fault
+  Location in Active Distribution Networks", including OpenDSS simulation,
+  physics-informed PMU features, algorithmic sensor placement, and a
+  reproducible 5-fold benchmark on the IEEE 123-bus feeder.
 keywords:
-  - fault location
-  - distribution networks
-  - distributed generation
-  - phasor measurement units
-  - PMU placement
-  - OpenDSS
-  - IEEE 123-bus
+  - active distribution networks
   - deep learning
-  - symmetrical components
+  - distributed generation
+  - fault location
+  - IEEE 123-bus feeder
+  - phasor measurement units
+  - sensor placement
+  - total vector error
 license: MIT
 version: 1.0.0
-date-released: '2026-07-31'
+date-released: '2026-08-13'
