@@ -1,5 +1,8 @@
 # Machine Learning for Bus-Level Fault Location in Active Distribution Networks
 
+[![DOI](https://zenodo.org/badge/1332364473.svg)](https://doi.org/10.5281/zenodo.21913528)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Reproducibility package for **"Machine Learning for Bus-Level Fault Location
 in Active Distribution Networks"**.
 

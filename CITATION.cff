@@ -1,7 +1,6 @@
 cff-version: 1.2.0
 title: >-
-  From 5 PMUs to 122 Buses: Machine Learning for Bus-Level Fault Location
-  in Active Distribution Networks
+  Machine Learning for Bus-Level Fault Location in Active Distribution Networks
 message: >-
   If you use this software or the associated dataset, please cite both the
   software and the paper.
@@ -20,6 +19,14 @@ authors:
       Department of Electrical Engineering, Universidade Estadual Paulista
       "Júlio de Mesquita Filho" (UNESP), Bauru, Brazil
 repository-code: 'https://github.com/fernando-barreira/ieee123-ml-fault-location'
+doi: 10.5281/zenodo.21913528
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21913528
+    description: Concept DOI — always resolves to the latest version
+  - type: doi
+    value: 10.5281/zenodo.21913529
+    description: Version DOI for release v1.0.0
 abstract: >-
   Reproducibility package for the paper "Machine Learning for Bus-Level Fault
   Location in Active Distribution Networks", including OpenDSS simulation,
